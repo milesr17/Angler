@@ -4,7 +4,7 @@ using UnityEngine;
 
 /* TODO
  * Apply Damage
- * Add Enemy Layer to inspector
+ * Add Enemy Layer to inspector -- DONE -John
  */
 public class PlayerAttack : MonoBehaviour
 {
