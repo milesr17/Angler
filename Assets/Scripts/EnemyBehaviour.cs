@@ -7,9 +7,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
 
     Rigidbody2D myRigidbody;
-
-    public bool checkEdge;
-
+    
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>(); //gets the components on the sprite        
