@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
                 Debug.Log("Melee attack!");
                 for (int i = 0; i < targetableEnemies.Length; i++)
                 {
-                    //TODO Apply Damage
+                    Destroy(targetableEnemies[i]);
                 }
             }
             //Reset cooldown

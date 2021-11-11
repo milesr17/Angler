@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Harpoon
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - Water
   - UI
   - IgnorePlayerCollision
-  - Player
   - Enemies
+  - Player
   - 
   - 
   - 

@@ -7,7 +7,9 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
 
     Rigidbody2D myRigidbody;
-    
+
+    public bool checkEdge;
+
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>(); //gets the components on the sprite        
@@ -15,7 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
-        if(IsFacingRight())
+        if (IsFacingRight())
         {
             myRigidbody.velocity = new Vector2(moveSpeed, 0f);
         }else
@@ -30,23 +32,16 @@ public class EnemyBehaviour : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-    transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+        transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
     }
-
-    /*kill player must be done on player
-    must call enemy tag enemy
-
-    void OncollisionEnter2D(Collision2D other)
-    {
-        if(other.gameObject.tag == "Enemy")
-        {
-            if(other.gameObject.tag == "Enemy")
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
-    */
 
     
+    public void Die()
+    {
+        Debug.Log("Enemy died");
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.SetActive(false);
+    }
+
 }
