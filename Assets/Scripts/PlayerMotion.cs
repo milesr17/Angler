@@ -20,6 +20,15 @@ public class PlayerMotion : MonoBehaviour
     public bool grounded;
     public bool doubleJump;
 
+    //For wall jump
+    public LayerMask whatIsGround;
+    private bool touchingRight;
+    private bool touchingLeft;
+    private bool wallJumping;
+    private float touchingLeftOrRight;
+
+
+
     bool facingRight = true;
 
     Rigidbody2D rb;
@@ -33,33 +42,18 @@ public class PlayerMotion : MonoBehaviour
         tempSpeed = movementSpeed;
     }
 
-    //Checks if player is colliding with the ground or not
-    void GroundedUpdater()
-    {
-        grounded = false;
-        RaycastHit2D[] hit;
-        hit = Physics2D.RaycastAll(transform.position, Vector2.down, 0.6f);
-        foreach (var hited in hit)
-        {
-            if (hited.collider.gameObject == gameObject)
-                continue;
-            if (hited.collider.gameObject.tag == "Ground")
-            {
-                grounded = true;
-            }
-        }
-    }
-
-
     // Update is called once per frame
     void Update()
     {
         //Displays the speed value in the console for testing
-        Debug.Log("Movement Speed: " + movementSpeed);
+        //Debug.Log("Movement Speed: " + movementSpeed);
+
+        grounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x , gameObject.transform.position.y - 0.3f), new Vector2(0.5f, 0.2f), 0f, whatIsGround);
+        touchingLeft = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x - 0.3f, gameObject.transform.position.y), new Vector2(0.15f, 0.5f), 0f, whatIsGround);
+        touchingRight = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x + 0.3f, gameObject.transform.position.y), new Vector2(0.15f, 0.5f), 0f, whatIsGround);
 
         //MOTION
         //Player jumps when user presses W
-        GroundedUpdater();
 
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -67,7 +61,7 @@ public class PlayerMotion : MonoBehaviour
             if (grounded)
             {
                 //Single jump
-                rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+                rb.velocity = Vector2.up * jumpSpeed;
                 grounded = false;
                 doubleJump = true;
             }
@@ -78,31 +72,35 @@ public class PlayerMotion : MonoBehaviour
                 {
                     //Double jump
                     doubleJump = false;
-                    rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+                    rb.velocity = Vector2.up * jumpSpeed;
                 }
             }
         }
 
-        //Player moves left when user presses A
-        if (Input.GetKey(KeyCode.A))
+        //Check if stuck on wall jump
+        if ((!touchingLeft && !touchingRight) || grounded)
         {
-            rb.velocity = new Vector2(-movementSpeed, rb.velocity.y);
-            //Checks if facing right
-            if (facingRight)
+            //Player moves left when user presses A
+            if (Input.GetKey(KeyCode.A))
             {
-                flip();
+                rb.velocity = new Vector2(-movementSpeed, rb.velocity.y);
+                //Checks if facing right
+                if (facingRight)
+                {
+                    flip();
+                }
             }
-        }
 
 
-        //Player moves right when user presses D 
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
-            //Checks if facing left
-            if (!facingRight)
+            //Player moves right when user presses D 
+            if (Input.GetKey(KeyCode.D))
             {
-                flip();
+                rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
+                //Checks if facing left
+                if (!facingRight)
+                {
+                    flip();
+                }
             }
         }
 
@@ -139,6 +137,25 @@ public class PlayerMotion : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
+        //WALL JUMP
+        if (touchingLeft)
+        {
+            touchingLeftOrRight = 1;
+        }
+        else if (touchingRight)
+        {
+            touchingLeftOrRight = -1;
+        }
+        if (Input.GetKeyDown(KeyCode.W) && (touchingRight || touchingLeft) && !grounded)
+        {
+            wallJumping = true;
+            Invoke("StopWallJump", 0.08f);
+        }
+
+        if (wallJumping)
+        {
+            rb.velocity = new Vector2(movementSpeed * touchingLeftOrRight, jumpSpeed);
+        }
     }
 
     //Adds the duration for the dash then returns the player to normal speed
@@ -154,6 +171,21 @@ public class PlayerMotion : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(Vector3.up * 180);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawCube(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.3f), new Vector2(0.5f, 0.2f));
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawCube(new Vector2(gameObject.transform.position.x - 0.3f, gameObject.transform.position.y), new Vector2(0.15f, 0.5f));
+        Gizmos.DrawCube(new Vector2(gameObject.transform.position.x + 0.3f, gameObject.transform.position.y), new Vector2(0.15f, 0.5f));
+    }
+
+    void StopWallJump()
+    {
+        wallJumping = false;
     }
 
 
