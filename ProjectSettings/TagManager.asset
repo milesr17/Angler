@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-  - Harpoon
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,9 +12,9 @@ TagManager:
   - 
   - Water
   - UI
-  - IgnorePlayerCollision
-  - Player
-  - Enemies
+  - 
+  - 
+  - 
   - 
   - 
   - 
