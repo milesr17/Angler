@@ -27,6 +27,9 @@ public class PlayerMotion : MonoBehaviour
     private bool wallJumping;
     private float touchingLeftOrRight;
 
+    //RestartUI
+    public GameObject youDiedText;
+    public GameObject restartButton;
 
 
     bool facingRight = true;
@@ -38,8 +41,13 @@ public class PlayerMotion : MonoBehaviour
     {
         //Reference for Rigidbody applied to player object for changing parameters
         rb = GetComponent<Rigidbody2D>();
+        
         //Sets tempSpeed with the default speed
         tempSpeed = movementSpeed;
+
+        //Disable death UI
+        youDiedText.SetActive(false);
+        restartButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -186,6 +194,16 @@ public class PlayerMotion : MonoBehaviour
     void StopWallJump()
     {
         wallJumping = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            youDiedText.SetActive(true);
+            restartButton.SetActive(true);
+            gameObject.SetActive(false);
+        }
     }
 
 

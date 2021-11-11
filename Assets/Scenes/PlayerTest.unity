@@ -2138,7 +2138,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2862,12 +2862,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4435468323230567666, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: harpoon
       value: 
       objectReference: {fileID: 2999345682678963169, guid: 2ed706eb1de509249a52ac8ba6282013, type: 3}
+    - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: projectile
       value: 
@@ -2889,8 +2893,16 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
+      propertyPath: meleeAtkRangeX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
+      propertyPath: meleeAtkRangeY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: enemyLayer.m_Bits
-      value: 256
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: startMeleeAtkCooldown
@@ -2948,6 +2960,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4435468323518324566, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435468323518324566, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4435468323518324567, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -2958,7 +2978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4435468323518324584, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}

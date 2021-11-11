@@ -184,6 +184,11 @@ MonoBehaviour:
   dashDuration: 1
   grounded: 0
   doubleJump: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  youDiedText: {fileID: 0}
+  restartButton: {fileID: 0}
 --- !u!114 &4435468323518324562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,12 +198,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4435468323518324584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8154f1bb6c5cc46a061f16d556cdc7, type: 3}
+  m_Script: {fileID: 11500000, guid: bfa498f597411024b896d63a37cdb740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingAttackCooldown: 0.5
-  attackPos: {fileID: 4435468323230567665}
+  meleeAtkPos: {fileID: 0}
   attackRange: 0.5
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
