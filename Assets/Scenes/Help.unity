@@ -504,7 +504,9 @@ MonoBehaviour:
 
     S to ground slam
 
-    Space to melee attack'
+    Space to melee attack
+
+    Left Shift to dash'
 --- !u!222 &569875633
 CanvasRenderer:
   m_ObjectHideFlags: 0

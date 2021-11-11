@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Orb: {fileID: 6905944285858129388, guid: 203b13b8ac1924170bf70fcb5df5f153, type: 3}
-  fullAttackWait: 6
+  fullAttackWait: 1
   fullOrbDelay: 0.4
 --- !u!114 &230475165
 MonoBehaviour:
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Orb: {fileID: 6905944285858129388, guid: 203b13b8ac1924170bf70fcb5df5f153, type: 3}
-  fullAttackWait: 6
+  fullAttackWait: 1
   fullOrbDelay: 0.4
 --- !u!114 &1131390200
 MonoBehaviour:
@@ -2611,7 +2611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Orb: {fileID: 6905944285858129388, guid: 203b13b8ac1924170bf70fcb5df5f153, type: 3}
-  fullAttackWait: 6
+  fullAttackWait: 1
   fullOrbDelay: 0.4
 --- !u!1001 &1631110148
 PrefabInstance:
@@ -3233,6 +3233,10 @@ PrefabInstance:
     - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: startRangedAtkCooldown
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435468323518324563, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
+      propertyPath: dashSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4435468323518324563, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: menuButton
