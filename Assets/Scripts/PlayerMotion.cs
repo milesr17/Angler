@@ -31,6 +31,10 @@ public class PlayerMotion : MonoBehaviour
     public GameObject youDiedText;
     public GameObject restartButton;
 
+    //LevelWinUI
+    public GameObject youWinText;
+    public GameObject menuButton;
+
 
     bool facingRight = true;
 
@@ -48,6 +52,10 @@ public class PlayerMotion : MonoBehaviour
         //Disable death UI
         youDiedText.SetActive(false);
         restartButton.SetActive(false);
+
+        //Disable win UI
+        youWinText.SetActive(false);
+        menuButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -202,6 +210,12 @@ public class PlayerMotion : MonoBehaviour
         {
             youDiedText.SetActive(true);
             restartButton.SetActive(true);
+            gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.tag.Equals("Respawn"))
+        {
+            youWinText.SetActive(true);
+            menuButton.SetActive(true);
             gameObject.SetActive(false);
         }
     }
