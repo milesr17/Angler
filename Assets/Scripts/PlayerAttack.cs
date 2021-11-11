@@ -4,24 +4,22 @@ using UnityEngine;
 
 /* TODO
  * Apply Damage
- * Add Enemy Layer to inspector -- DONE -John
+ * Add Enemy Layer to inspector
  */
 public class PlayerAttack : MonoBehaviour
 {
     //Cooldown variables
     private float meleeAtkCooldown;
     public float startMeleeAtkCooldown;
-    private float rangedAtkCooldown;
-    public float startRangedAtkCooldown;
+    //private float harpoonCooldown;
+    //public float startHarpoonCooldown;
 
     //Attack range variables
     public Transform meleeAtkPos;
-    public float meleeAtkRange;
+    public float meleeAtkRangeX;
+    public float meleeAtkRangeY;
     public LayerMask enemyLayer;
 
-    public GameObject harpoon;
-    public Transform rangedAtkPos;
-    public float throwSpeed;
 
     void Update()
     {
@@ -30,45 +28,39 @@ public class PlayerAttack : MonoBehaviour
             //Melee attack
             if(Input.GetKey(KeyCode.Space))
             {
+                //Play attack animation
+                //this.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
                 //Check enemies in range
-                Collider2D[] targetableEnemies = Physics2D.OverlapCircleAll(meleeAtkPos.position, meleeAtkRange, enemyLayer);
-                for(int i = 0; i < targetableEnemies.Length; i++)
+                Collider2D[] targetableEnemies = Physics2D.OverlapBoxAll(meleeAtkPos.position, new Vector2(meleeAtkRangeX, meleeAtkRangeY), 0, enemyLayer);
+                Debug.Log("Melee attack!");
+                for (int i = 0; i < targetableEnemies.Length; i++)
                 {
                     //TODO Apply Damage
                 }
             }
             //Reset cooldown
             meleeAtkCooldown = startMeleeAtkCooldown;
+            //harpoonCooldown = startHarpoonCooldown;
+            //this.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
         }
         else
         {
             //Decrease cooldown
             meleeAtkCooldown -= Time.deltaTime;
+            //harpoonCooldown -= Time.deltaTime;
         }
 
-        if(rangedAtkCooldown <= 0)
-        {
-            //Ranged attack
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                //Spawn projectile
-                GameObject newHarpoon = Instantiate(harpoon, rangedAtkPos.position, Quaternion.Euler(0, 0, 3));
-                newHarpoon.GetComponent<Rigidbody2D>().velocity = transform.right * throwSpeed;
+
+
+                //newHarpoon.GetComponent<Rigidbody2D>().velocity = transform.right * throwSpeed;
                 //Reset cooldown
-                rangedAtkCooldown = startRangedAtkCooldown;
-            }
-        }
-        else
-        {
-            //Decrease cooldown
-            rangedAtkCooldown -= Time.deltaTime;
-        }
+                //rangedAtkCooldown = startRangedAtkCooldown;
     }
 
     //Attack range scene visual
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(meleeAtkPos.position, meleeAtkRange);
+        Gizmos.DrawWireCube(meleeAtkPos.position, new Vector3(meleeAtkRangeX, meleeAtkRangeY, 1));
     }
 }
