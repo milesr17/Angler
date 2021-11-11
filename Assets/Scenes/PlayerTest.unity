@@ -1301,28 +1301,6 @@ MonoBehaviour:
   Orb: {fileID: 6905944285858129388, guid: 203b13b8ac1924170bf70fcb5df5f153, type: 3}
   fullAttackWait: 6
   fullOrbDelay: 0.4
---- !u!1 &1759187667 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4435468323518324584, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
-  m_PrefabInstance: {fileID: 4435468323083957943}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1759187673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759187667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfa498f597411024b896d63a37cdb740, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meleeAtkPos: {fileID: 189626950}
-  attackRange: 1.07
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1001 &1813971878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1667,7 +1645,7 @@ PrefabInstance:
       objectReference: {fileID: 2999345682678963169, guid: 2ed706eb1de509249a52ac8ba6282013, type: 3}
     - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: projectile
@@ -1699,7 +1677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: enemyLayer.m_Bits
-      value: 0
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 4435468323518324562, guid: 766f1e94977ffb64a982cef5597ee014, type: 3}
       propertyPath: startMeleeAtkCooldown
