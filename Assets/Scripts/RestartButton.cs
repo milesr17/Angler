@@ -5,18 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RestartButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+   //Reload level scene
     public void restartScene()
     {
         SceneManager.LoadScene("PlayerTest");

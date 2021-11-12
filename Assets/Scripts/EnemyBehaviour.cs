@@ -33,7 +33,7 @@ public class EnemyBehaviour : MonoBehaviour
         transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
     }
 
-    
+    //Kill enemy
     public void Die()
     {
         Debug.Log("Enemy died");

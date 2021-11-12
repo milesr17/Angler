@@ -64,6 +64,7 @@ public class PlayerMotion : MonoBehaviour
         //Displays the speed value in the console for testing
         //Debug.Log("Movement Speed: " + movementSpeed);
 
+        //Detection variables
         grounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x , gameObject.transform.position.y - 0.3f), new Vector2(0.5f, 0.2f), 0f, whatIsGround);
         touchingLeft = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x - 0.3f, gameObject.transform.position.y), new Vector2(0.15f, 0.5f), 0f, whatIsGround);
         touchingRight = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x + 0.3f, gameObject.transform.position.y), new Vector2(0.15f, 0.5f), 0f, whatIsGround);
@@ -153,7 +154,7 @@ public class PlayerMotion : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-        //WALL JUMP
+        //START WALL JUMP
         if (touchingLeft)
         {
             touchingLeftOrRight = 1;
@@ -189,6 +190,7 @@ public class PlayerMotion : MonoBehaviour
         transform.Rotate(Vector3.up * 180);
     }
 
+    //See ground and wall detectors in scene
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
@@ -199,19 +201,23 @@ public class PlayerMotion : MonoBehaviour
         Gizmos.DrawCube(new Vector2(gameObject.transform.position.x + 0.3f, gameObject.transform.position.y), new Vector2(0.15f, 0.5f));
     }
 
+    //End wall jump
     void StopWallJump()
     {
         wallJumping = false;
     }
 
+    //Detect collisions
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //Kill player if hit enemy
         if (collision.gameObject.tag.Equals("Enemy"))
         {
             youDiedText.SetActive(true);
             restartButton.SetActive(true);
             gameObject.SetActive(false);
         }
+        //End level if reached end
         else if (collision.gameObject.tag.Equals("Respawn"))
         {
             youWinText.SetActive(true);
