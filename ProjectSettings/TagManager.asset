@@ -8,6 +8,7 @@ TagManager:
   - Harpoon
   - Enemy
   - Music
+  - Spike
   layers:
   - Default
   - TransparentFX
