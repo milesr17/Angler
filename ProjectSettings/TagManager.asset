@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Harpoon
   - Enemy
+  - Music
   - Spike
   layers:
   - Default
