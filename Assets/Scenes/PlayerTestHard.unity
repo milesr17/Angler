@@ -2314,7 +2314,7 @@ Animator:
   m_GameObject: {fileID: 989458974}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 858ddfeda5149ce4395bdd2772795e6d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2b7008846a0bd57478a9032c987dc614, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4192,7 +4192,7 @@ Animator:
   m_GameObject: {fileID: 1536629277}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 858ddfeda5149ce4395bdd2772795e6d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2b7008846a0bd57478a9032c987dc614, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5162,7 +5162,7 @@ Animator:
   m_GameObject: {fileID: 1781897279}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 858ddfeda5149ce4395bdd2772795e6d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2b7008846a0bd57478a9032c987dc614, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6158,9 +6158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  youDiedText: {fileID: 0}
-  restartButton: {fileID: 0}
-  player: {fileID: 0}
+  youDiedText: {fileID: 1795532652}
+  restartButton: {fileID: 1049340066}
+  player: {fileID: 2086076067}
 --- !u!4 &2089855657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5785000826042059218, guid: 00f170463367ad0479a426ee9718290d, type: 3}
@@ -6308,7 +6308,7 @@ Animator:
   m_GameObject: {fileID: 2127660684}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 858ddfeda5149ce4395bdd2772795e6d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2b7008846a0bd57478a9032c987dc614, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

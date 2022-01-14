@@ -7,6 +7,12 @@ TagManager:
   - Ground
   - Harpoon
   - Enemy
+  - Music
+  - Spike
+  - Red
+  - Green
+  - Blue
+  - Coins
   layers:
   - Default
   - TransparentFX

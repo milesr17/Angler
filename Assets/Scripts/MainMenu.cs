@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
+
+    public float waitTime;
+    public Animator musicAnim;
+    public Animator sceneAnim;
+
     //Load game scene
     public void PlayGame ()
     {
-<<<<<<< Updated upstream
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-=======
         StartCoroutine(SceneChange());
     }
     
@@ -19,7 +21,5 @@ public class MainMenu : MonoBehaviour {
         sceneAnim.SetTrigger("sceneFadeOut");
         yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene("LevelSelect");
->>>>>>> Stashed changes
     }
-    
 }
