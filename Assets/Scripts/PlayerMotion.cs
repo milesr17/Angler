@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMotion : MonoBehaviour
 {
@@ -81,6 +82,7 @@ public class PlayerMotion : MonoBehaviour
                 rb.velocity = Vector2.up * jumpSpeed;
                 grounded = false;
                 doubleJump = true;
+                SoundPlaying.sfxInstance.PlayJump();
             }
             else
             {
@@ -90,6 +92,7 @@ public class PlayerMotion : MonoBehaviour
                     //Double jump
                     doubleJump = false;
                     rb.velocity = Vector2.up * jumpSpeed;
+                    SoundPlaying.sfxInstance.PlayJump();
                 }
             }
         }
@@ -216,6 +219,7 @@ public class PlayerMotion : MonoBehaviour
             youDiedText.SetActive(true);
             restartButton.SetActive(true);
             gameObject.SetActive(false);
+            SoundPlaying.sfxInstance.PlayFail();
         }
         //End level if reached end
         else if (collision.gameObject.tag.Equals("Respawn"))
@@ -223,8 +227,22 @@ public class PlayerMotion : MonoBehaviour
             youWinText.SetActive(true);
             menuButton.SetActive(true);
             gameObject.SetActive(false);
+            SoundPlaying.sfxInstance.PlaySuccess();
         }
     }
+<<<<<<< Updated upstream
+=======
+    
+    //player dies on spike collision
+    void OnTriggerEnter2D(Collider2D collision){
+        if (collision.gameObject.tag.Equals("Spike"))
+        {
+            youDiedText.SetActive(true);
+            restartButton.SetActive(true);
+            gameObject.SetActive(false);
+            SoundPlaying.sfxInstance.PlayFail();
+        }
+>>>>>>> Stashed changes
 
 
 }
