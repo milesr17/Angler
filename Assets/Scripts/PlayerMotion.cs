@@ -227,7 +227,8 @@ public class PlayerMotion : MonoBehaviour
         }
 
     }
-    
+
+
     //player dies on spike collision
     void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.tag.Equals("Spike"))
