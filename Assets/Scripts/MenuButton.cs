@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour
 {
+    //Anim variables
     public float waitTime;
     public Animator musicAnim;
     public Animator sceneAnim;
@@ -12,9 +13,11 @@ public class MenuButton : MonoBehaviour
     //Load menu scene
     public void menuScene()
     {
+        //Call Coroutine Method
         StartCoroutine(SceneChange());
     }
 
+    //Trigger Anim, Load Scene after delay
     IEnumerator SceneChange()
     {
         musicAnim.SetTrigger("musicFadeOut");

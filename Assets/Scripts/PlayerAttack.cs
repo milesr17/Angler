@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             //Run kill function for enemies
-            enemy.GetComponent<EnemyBehaviour>().Die();
+            enemy.GetComponent<EnemyDeath>().Die();
         }
     }
 

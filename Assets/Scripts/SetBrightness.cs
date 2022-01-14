@@ -22,6 +22,7 @@ public class SetBrightness : MonoBehaviour
         //ChangeAlpha(currentGameObject.GetComponent<Renderer>().material, alpha);
     }
 
+    //Set new brighness
     void ChangeAlpha(Image img, float alphaValue)
     {
         Color oldColor = img.color;
@@ -29,6 +30,7 @@ public class SetBrightness : MonoBehaviour
         img.color = newColor;
     }
 
+    //Pass slider value to change brightness
     public void ChangeAlphaOnSlider(Slider slider)
     {
         ChangeAlpha(currentImage, slider.value);

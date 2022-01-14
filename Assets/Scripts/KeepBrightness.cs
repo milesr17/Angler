@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class KeepBrightness : MonoBehaviour
 {
+    //Keep brightness image persistent
     public Image currentImage;
     void Awake()
     {

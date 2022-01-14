@@ -20,6 +20,6 @@ public class MainMenu : MonoBehaviour {
         musicAnim.SetTrigger("musicFadeOut");
         sceneAnim.SetTrigger("sceneFadeOut");
         yield return new WaitForSeconds(waitTime);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("LevelSelect");
     }
 }

@@ -8,6 +8,6 @@ public class RestartButton : MonoBehaviour
    //Reload level scene
     public void restartScene()
     {
-        SceneManager.LoadScene("PlayerTest");
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
 }

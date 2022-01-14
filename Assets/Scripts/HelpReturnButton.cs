@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class HelpReturnButton : MonoBehaviour
 {
+    //Load menu
     public void menuScene()
     {
         SceneManager.LoadScene("Menu");
