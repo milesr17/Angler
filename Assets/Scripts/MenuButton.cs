@@ -5,11 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    //Load menu scene
-    public void menuScene()
-    {
-=======
     //Anim variables
     public float waitTime;
     public Animator musicAnim;
@@ -28,7 +23,6 @@ public class MenuButton : MonoBehaviour
         musicAnim.SetTrigger("musicFadeOut");
         sceneAnim.SetTrigger("sceneFadeOut");
         yield return new WaitForSeconds(waitTime);
->>>>>>> Stashed changes
         SceneManager.LoadScene("Menu");
     }
 }

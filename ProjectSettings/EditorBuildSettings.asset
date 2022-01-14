@@ -17,8 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Help.unity
     guid: aafeffbf6318d024194122114b867c72
-<<<<<<< Updated upstream
-=======
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: c9068c375b02de746a5372203f309afd
@@ -49,5 +47,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TowerLevelHard.unity
     guid: f4434b62ac41d6441904d8847a3cca25
->>>>>>> Stashed changes
   m_configObjects: {}

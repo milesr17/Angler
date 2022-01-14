@@ -212,7 +212,8 @@ public class PlayerMotion : MonoBehaviour
 
     //Detect collisions
     void OnCollisionEnter2D(Collision2D collision)
-    {
+    {   
+
         //Kill player if hit enemy
         if (collision.gameObject.tag.Equals("Enemy"))
         {
@@ -229,6 +230,7 @@ public class PlayerMotion : MonoBehaviour
             gameObject.SetActive(false);
             SoundPlaying.sfxInstance.PlaySuccess();
         }
+
     }
 <<<<<<< Updated upstream
 =======
@@ -244,5 +246,16 @@ public class PlayerMotion : MonoBehaviour
         }
 >>>>>>> Stashed changes
 
+
+    //player dies on spike collision
+    void OnTriggerEnter2D(Collider2D collision){
+        if (collision.gameObject.tag.Equals("Spike"))
+        {
+            youDiedText.SetActive(true);
+            restartButton.SetActive(true);
+            gameObject.SetActive(false);
+        }
+
+    }
 
 }
